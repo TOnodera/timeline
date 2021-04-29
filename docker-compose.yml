@@ -20,19 +20,6 @@ services:
     environment:
       - NODE_ENV=${NODE_ENV}
       - WEB_SERVER_URL=${WEB_SERVER_URL}
-
-  db:
-    build: ./docker/mysql
-    volumes:
-      - db-store:/var/lib/mysql
-    ports:
-      - ${DB_PORT}:3306
-    environment: 
-      - MYSQL_DATABASE=${MYSQL_DATABASE}
-      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
-      - MYSQL_USER=${MYSQL_USER}
-      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
-      - TZ=${TZ}
       
   sseserver:
     image: sse-server:1.0
