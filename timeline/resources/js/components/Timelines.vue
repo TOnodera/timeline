@@ -7,6 +7,7 @@
 <script>
 import Timeline from './Timeline';
 import http from '../utility/http';
+import { baseUrl } from '../../config';
 
 export default {
     name: "Timelines",
@@ -23,12 +24,13 @@ export default {
         const response = await http.get('/start');
         this.messages = response.data;
 
-        const source = new EventSource("http://localhost:3000/streams",{withCredentials: true});
+        const source = new EventSource(`${baseUrl}/streams`,{withCredentials: true});
         source.onmessage = (e)=>{
             this.messages.unshift(JSON.parse(e.data));
             if(this.messages.length > 100){
                 this.messages.pop();
             }
+            console.log(JSON.parse(e.data).id,JSON.parse(e.data).name);
         };
         source.onopen = ()=>{
             console.log("open..");
