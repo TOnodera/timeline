@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { baseUrl } from '../../config';
+import { baseUrl } from '../config';
 
 const http = axios.create({
     withCredentials: true,

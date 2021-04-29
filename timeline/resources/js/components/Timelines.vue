@@ -7,7 +7,7 @@
 <script>
 import Timeline from './Timeline';
 import http from '../utility/http';
-import { baseUrl } from '../../config';
+import { baseUrl } from '../config';
 
 export default {
     name: "Timelines",
