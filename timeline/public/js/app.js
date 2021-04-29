@@ -16664,15 +16664,16 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     var _this = this;
 
     return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
-      var response, source;
+      var MAX_SHOW_NUM, response, source;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              _context.next = 2;
+              MAX_SHOW_NUM = 100;
+              _context.next = 3;
               return _utility_http__WEBPACK_IMPORTED_MODULE_2__.default.get('/start');
 
-            case 2:
+            case 3:
               response = _context.sent;
               _this.messages = response.data;
               source = new EventSource("".concat(_config__WEBPACK_IMPORTED_MODULE_3__.baseUrl, "/streams"), {
@@ -16682,15 +16683,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               source.onmessage = function (e) {
                 _this.messages.unshift(JSON.parse(e.data));
 
-                if (_this.messages.length > 100) {
+                if (_this.messages.length >= MAX_SHOW_NUM) {
                   _this.messages.pop();
                 }
-
-                console.log(JSON.parse(e.data).id, JSON.parse(e.data).name);
-              };
-
-              source.onopen = function () {
-                console.log("open..");
               };
 
               source.onerror = function (e) {

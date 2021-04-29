@@ -21,20 +21,18 @@ export default {
     },
     async mounted(){
 
+        const MAX_SHOW_NUM = 100;
         const response = await http.get('/start');
         this.messages = response.data;
 
         const source = new EventSource(`${baseUrl}/streams`,{withCredentials: true});
         source.onmessage = (e)=>{
             this.messages.unshift(JSON.parse(e.data));
-            if(this.messages.length > 100){
+            if(this.messages.length >= MAX_SHOW_NUM){
                 this.messages.pop();
             }
-            console.log(JSON.parse(e.data).id,JSON.parse(e.data).name);
         };
-        source.onopen = ()=>{
-            console.log("open..");
-        };
+
         source.onerror = (e) => {
             console.log(`error:`,e);
         }
