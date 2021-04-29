@@ -45,5 +45,6 @@ services:
       - APP_SERVER_PORT=${APP_SERVER_PORT}
       - WEB_SERVER_URL=${WEB_SERVER_URL}
       - WEB_SERVER_PORT=${WEB_SERVER_PORT}
+      - NODE_ENV=${NODE_ENV}
 volumes: 
   db-store:
