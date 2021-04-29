@@ -36,6 +36,7 @@ export default {
         source.onerror = (e) => {
             console.log(`error:`,e);
         }
+        
     }
 }
 </script>
