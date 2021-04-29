@@ -3,7 +3,7 @@ services:
   nginx:
     image: nginx:latest
     ports:
-      - 8010:80
+      - 80:80
     volumes:
       - ./docker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf
       - ./timeline/public:/var/www/timeline/public
@@ -23,7 +23,7 @@ services:
     volumes:
       - db-store:/var/lib/mysql
     ports:
-      - 3306:3306
+      - ${DB_PORT}:3306
     environment: 
       - MYSQL_DATABASE=${MYSQL_DATABASE}
       - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
@@ -31,12 +31,6 @@ services:
       - MYSQL_PASSWORD=${MYSQL_PASSWORD}
       - TZ=${TZ}
       
-  phpmyadmin:
-    image: phpmyadmin/phpmyadmin:latest
-    ports:
-      - 8811:80
-    depends_on:
-      - db
   sseserver:
     image: sse-server:1.0
     ports: 
