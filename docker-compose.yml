@@ -49,5 +49,6 @@ services:
       - WEB_SERVER_URL=${WEB_SERVER_URL}
       - WEB_SERVER_PORT=${WEB_SERVER_PORT}
       - NODE_ENV=${NODE_ENV}
+      - TZ={$TZ}
 volumes: 
   db-store:
