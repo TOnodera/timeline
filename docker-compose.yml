@@ -9,6 +9,8 @@ services:
       - ./timeline/public:/var/www/timeline/public
     depends_on:
       - php
+    environment:
+      - TZ=${TZ}
 
   php:
     container_name: php-laravel
