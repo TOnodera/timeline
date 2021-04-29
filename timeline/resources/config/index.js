@@ -1,3 +1,3 @@
-const baseUrl = "http://timeliner.tk"
+const baseUrl = "https://timeliner.tk"
 
 export { baseUrl };
