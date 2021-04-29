@@ -1,3 +1,3 @@
-const baseUrl = process.env.NODE_ENV === "prod" ? process.env.WEB_SERVER_URL : "http://localhost:3000";
+const baseUrl = "http://timeliner.tk"
 
 export { baseUrl };
