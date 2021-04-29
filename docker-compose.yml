@@ -19,6 +19,7 @@ services:
       - ./:/var/www/
     environment:
       - NODE_ENV=${NODE_ENV}
+      - WEB_SERVER_URL=${WEB_SERVER_URL}
 
   db:
     build: ./docker/mysql
