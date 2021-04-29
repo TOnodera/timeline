@@ -16864,7 +16864,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "baseUrl": () => (/* binding */ baseUrl)
 /* harmony export */ });
-var baseUrl = "http://localhost:3000";
+var baseUrl =  false ? 0 : "http://localhost:3000";
 
 
 /***/ }),

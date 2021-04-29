@@ -31,6 +31,7 @@
         "vue-template-compiler": "^2.6.12"
     },
     "dependencies": {
+        "dotenv": "^8.2.0",
         "simple-vue-timeline": "^2.0.8"
     }
 }
